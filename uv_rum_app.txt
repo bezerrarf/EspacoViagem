@@ -1,0 +1,10 @@
+Para primeira execução. Verifique se UV está devidamete instalado
+Para Instala o uv:
+-> curl -LsSf https://astral.sh/uv/install.sh | sh
+
+Rode o comando:
+-> uv run python controllers/main.py
+
+Na pasta Raiz do Projeto:
+-> /workspaces/EspacoViagem 
+
