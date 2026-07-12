@@ -1,0 +1,140 @@
+/* =========================================================
+   1. LIMPEZA
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================================================
+   2. TEMA ESCURO (BASE DO SITE)
+   ========================================================= */
+body {
+    background-color: #0b0e14; 
+    color: #e0e6ed; 
+    line-height: 1.6;
+}
+
+/* =========================================================
+   3. CABEÇALHO E NAVEGAÇÃO
+   ========================================================= */
+.top-bar {
+    background-color: #151a22;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1f2937;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.menu-principal ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Para remover o sublinhado dos links */
+.menu-principal a {
+    text-decoration: none;
+    color: #a3b8cc;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Animação suave */
+}
+
+.menu-principal a:hover, .menu-principal a.ativo {
+    color: #4da6ff; /* Azul brilhante quando passa o mouse */
+}
+
+/* =========================================================
+   4. CONTEÚDO PRINCIPAL E SEÇÕES
+   ========================================================= */
+.conteudo-principal {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza tudo!!!*/
+}
+
+.secao-apresentacao {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.titulo-secao {
+    border-left: 4px solid #4da6ff;
+    padding-left: 10px;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   5. O CARROSSEL E OS CARTÕES DOS PLANETAS
+   ========================================================= */
+/* Complicado...  */
+.trilho-carrossel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto; /* Barra de rolagem <-> Chaata */
+    padding-bottom: 1rem;
+}
+
+/* Passando raiva... */
+.cartao-planeta {
+    background-color: #1a202c;
+    border-radius: 12px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2d3748;
+    overflow: hidden; 
+}
+
+.placeholder-img {
+    background-color: #2d3748;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a3b8cc;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.info-planeta {
+    padding: 1.5rem;
+}
+
+.info-planeta h3 {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.texto-curiosidade {
+    font-size: 0.9rem;
+    color: #a3b8cc;
+    margin-top: 1rem;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #2d3748;
+    margin: 1rem 0;
+}
+
+/* =========================================================
+   6. RODAPÉ
+   ========================================================= */
+.rodape-simples {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0b0e14;
+    color: #718096;
+    font-size: 0.8rem;
+    border-top: 1px solid #1f2937;
+}

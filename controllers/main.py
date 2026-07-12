@@ -2,18 +2,21 @@ from fasthtml.common import *
 import sys
 import os
 
-# Pequeno truque para o Python achar a nossa pasta 'views'
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from views.home import layout_pagina_inicial
 
-# Inicializamos o aplicativo FastHTML
-app, rt = fast_app()
+# 1. FastHTML e CSS para funcionar!
+app, rt = fast_app(
+    hdrs=(Link(rel="stylesheet", href="/static/style.css"),)
+)
 
-# Criamos a rota principal (a página inicial do site: "/")
+# 2. Rota 
+@rt('/static/{path:path}')
+def arquivos_estaticos(path: str):
+    return FileResponse(f'views/static/{path}')
+
 @rt('/')
 def get():
-    # Retornamos o título da aba do navegador e o layout que criamos na View
     return Title("Espaço Viagem"), layout_pagina_inicial()
 
-# Ligamos o servidor!
 serve()

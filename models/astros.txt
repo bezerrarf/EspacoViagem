@@ -1,0 +1,8 @@
+Mercúrio|0.39 UA|3.285 × 10^23 kg|É o menor planeta do sistema solar e não possui luas.
+Vênus|0.72 UA|4.867 × 10^24 kg|Sua atmosfera densa o torna o planeta mais quente do sistema solar.
+Terra|1.00 UA|5.972 × 10^24 kg|O único planeta conhecido a abrigar vida.
+Marte|1.52 UA|6.39 × 10^23 kg|Conhecido como Planeta Vermelho devido ao óxido de ferro em sua superfície.
+Júpiter|5.20 UA|1.898 × 10^27 kg|O maior planeta, possui uma tempestade gigante chamada Grande Mancha Vermelha.
+Saturno|9.58 UA|5.683 × 10^26 kg|Famoso por seu espetacular e complexo sistema de anéis feitos de gelo e rocha.
+Urano|19.20 UA|8.681 × 10^25 kg|Possui uma inclinação tão extrema que gira praticamente de lado.
+Netuno|30.05 UA|1.024 × 10^26 kg|O planeta mais distante do Sol, conhecido por seus ventos supersônicos.

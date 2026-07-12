@@ -1,41 +1,66 @@
 from fasthtml.common import *
 
 def layout_pagina_inicial():
-    # Retorna as partes principais que compõem o corpo do site
+    
+    # 1. ABRINDO OS MOCK DATA 
+    arquivo = open("models/astros.txt", "r", encoding="utf-8")
+    linhas = arquivo.readlines()
+    
+    # 2. PREPARANDO OS CARTÕES VISUAIS
+    cartoes_visuais = []
+    
+    for linha in linhas:
+        # Leitura da quebra a linha, onde tem a barra (|) he guarda nas variáveis
+        nome, distancia, massa, curiosidade = linha.split('|')
+        
+        # Desenha a caixa de informações do planeta
+        cartao = Div(cls="cartao-planeta", *[
+            Div("NASA IMAGE PLACEHOLDER", cls="placeholder-img"),
+            Div(cls="info-planeta", *[
+                H3(nome),
+                P(Strong("Distância: "), distancia),
+                P(Strong("Massa: "), massa),
+                Hr(),
+                P(curiosidade, cls="texto-curiosidade")
+            ])
+        ])
+        
+        # Adiciona o cartão da lista
+        cartoes_visuais.append(cartao)
+
+    # 3. MONTANDO O VISUAL
     return (
-        # 1. CABEÇALHO E NAVEGAÇÃO
-        Header(
-            H1("🚀 Espaço Viagem 🚀"),
-            Nav(
+        # Cabeçalho
+        Header(cls="top-bar", *[
+            H1("🚀 Espaço Viagem", cls="logo"),
+            Nav(cls="menu-principal", *[
                 Ul(
-                    Li(A("Início", href="/")),
-                    Li(A("Planetas (Em breve)", href="#")),
-                    Li(A("Asteroides (Em breve)", href="#")),
+                    Li(A("Início", href="/", cls="ativo")),
+                    Li(A("Planetas", href="#")),
+                    Li(A("Asteroides", href="#")),
                     Li(A("Sobre a Equipe", href="#"))
                 )
-            )
-        ),
+            ])
+        ]),
         
-        # 2. CONTEÚDO PRINCIPAL
-        Main(
-            # Seção 1: Apresentação
-            Section(
+        # Conteúdo Principal
+        Main(cls="conteudo-principal", *[
+            Section(cls="secao-apresentacao", *[
                 H2("Bem-vindo ao Cosmos!"),
                 P("Este é o ambiente inicial do projeto Espaço Viagem, desenvolvido por Ramon, Samira, Emmanuel e Pyerre."),
                 P("Aqui vamos explorar imagens da NASA e dados da Wikipedia sobre o nosso sistema solar.")
-            ),
+            ]),
             
-            # Seção 2: Espaço reservado...
-            Section(
-                H2("Imagem Astronômica do Dia"),
-                P("Em breve, este espaço receberá os dados integrados da API da NASA.")
-            )
-        ),
+            Section(cls="secao-carrossel", *[
+                H2("Exploração Planetária", cls="titulo-secao"),
+                
+                # Despejando todos os cartões criados em cima aqui
+                Div(cls="trilho-carrossel", *cartoes_visuais)
+            ])
+        ]),
         
-        # 3. RODAPÉ
-        Footer(
+        # Rodapé
+        Footer(cls="rodape-simples", *[
             P("© 2026 Projeto Espaço Viagem - Desenvolvido para estudos de programação e astronomia.")
-        )
+        ])
     )
-
-
