@@ -1,21 +1,29 @@
 from fasthtml.common import *
+import os
 
 def layout_pagina_inicial():
     
-    # 1. ABRINDO OS MOCK DATA 
-    arquivo = open("models/astros.txt", "r", encoding="utf-8")
+    # 1. MOCK DATA
+    caminho_atual = os.path.dirname(os.path.abspath(__file__))
+    caminho_txt = os.path.join(caminho_atual, '..', 'models', 'astros.txt')
+    
+    arquivo = open(caminho_txt, "r", encoding="utf-8")
     linhas = arquivo.readlines()
     
-    # 2. PREPARANDO OS CARTÕES VISUAIS
+    # 2. CARTÕES VISUAIS
     cartoes_visuais = []
     
     for linha in linhas:
-        # Leitura da quebra a linha, onde tem a barra (|) he guarda nas variáveis
-        nome, distancia, massa, curiosidade = linha.split('|')
+        linha_limpa = linha.strip()
+        if not linha_limpa:
+            continue # Pula caso haja alguma linha vazia no txt
+            
+        # Quebra a linha
+        nome, distancia, massa, curiosidade, url_imagem = linha_limpa.split('|')
         
         # Desenha a caixa de informações do planeta
         cartao = Div(cls="cartao-planeta", *[
-            Div("NASA IMAGE PLACEHOLDER", cls="placeholder-img"),
+            Img(src=url_imagem, alt=f"Imagem de {nome}", cls="imagem-planeta"),
             Div(cls="info-planeta", *[
                 H3(nome),
                 P(Strong("Distância: "), distancia),
@@ -25,41 +33,36 @@ def layout_pagina_inicial():
             ])
         ])
         
-        # Adiciona o cartão da lista
         cartoes_visuais.append(cartao)
 
-    # 3. MONTANDO O VISUAL
+    # 3. VISUAL
     return (
-        # Cabeçalho
+        # Cabeçalho do Menu
         Header(cls="top-bar", *[
             H1("🚀 Espaço Viagem", cls="logo"),
             Nav(cls="menu-principal", *[
-                Ul(
+                Ul(*[
                     Li(A("Início", href="/", cls="ativo")),
                     Li(A("Planetas", href="#")),
                     Li(A("Asteroides", href="#")),
                     Li(A("Sobre a Equipe", href="#"))
-                )
+                ])
             ])
         ]),
         
-        # Conteúdo Principal
         Main(cls="conteudo-principal", *[
-            Section(cls="secao-apresentacao", *[
-                H2("Bem-vindo ao Cosmos!"),
-                P("Este é o ambiente inicial do projeto Espaço Viagem, desenvolvido por Ramon, Samira, Emmanuel e Pyerre."),
-                P("Aqui vamos explorar imagens da NASA e dados da Wikipedia sobre o nosso sistema solar.")
-            ]),
-            
             Section(cls="secao-carrossel", *[
                 H2("Exploração Planetária", cls="titulo-secao"),
-                
-                # Despejando todos os cartões criados em cima aqui
                 Div(cls="trilho-carrossel", *cartoes_visuais)
+            ]),
+
+            Section(cls="secao-apresentacao", *[
+                H2("Bem-vindo ao Cosmos!"),                
+                P("Este é o ambiente inicial do projeto Espaço Viagem, desenvolvido por Ramon, Samira, Emmanuel e Pyerre."),
+                P("Aqui vamos explorar imagens da NASA e dados da Wikipedia sobre o nosso sistema solar.")
             ])
         ]),
         
-        # Rodapé
         Footer(cls="rodape-simples", *[
             P("© 2026 Projeto Espaço Viagem - Desenvolvido para estudos de programação e astronomia.")
         ])

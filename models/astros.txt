@@ -1,8 +1,12 @@
-Mercúrio|0.39 UA|3.285 × 10^23 kg|É o menor planeta do sistema solar e não possui luas.
-Vênus|0.72 UA|4.867 × 10^24 kg|Sua atmosfera densa o torna o planeta mais quente do sistema solar.
-Terra|1.00 UA|5.972 × 10^24 kg|O único planeta conhecido a abrigar vida.
-Marte|1.52 UA|6.39 × 10^23 kg|Conhecido como Planeta Vermelho devido ao óxido de ferro em sua superfície.
-Júpiter|5.20 UA|1.898 × 10^27 kg|O maior planeta, possui uma tempestade gigante chamada Grande Mancha Vermelha.
-Saturno|9.58 UA|5.683 × 10^26 kg|Famoso por seu espetacular e complexo sistema de anéis feitos de gelo e rocha.
-Urano|19.20 UA|8.681 × 10^25 kg|Possui uma inclinação tão extrema que gira praticamente de lado.
-Netuno|30.05 UA|1.024 × 10^26 kg|O planeta mais distante do Sol, conhecido por seus ventos supersônicos.
+Sol|0.00 UA|1.989 × 10^30 kg|A estrela central do sistema, composta de hidrogênio e hélio, contendo 99,8% de toda a massa do sistema solar.|https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg
+Mercúrio|0.39 UA|3.285 × 10^23 kg|É o menor planeta do sistema solar e não possui luas.|https://upload.wikimedia.org/wikipedia/commons/3/30/Mercury_in_color_-_Prockter07_centered.jpg
+Vênus|0.72 UA|4.867 × 10^24 kg|Sua atmosfera densa o torna o planeta mais quente do sistema solar.|https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg
+Terra|1.00 UA|5.972 × 10^24 kg|O único planeta conhecido a abrigar vida em toda a sua complexidade.|https://upload.wikimedia.org/wikipedia/commons/c/cb/The_Blue_Marble_%28remastered%29.jpg
+Marte|1.52 UA|6.39 × 10^23 kg|Conhecido como Planeta Vermelho devido ao óxido de ferro abundante em sua superfície.|https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg
+Júpiter|5.20 UA|1.898 × 10^27 kg|O maior planeta de todos, possui uma tempestade gigante chamada Grande Mancha Vermelha.|https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg
+Saturno|9.58 UA|5.683 × 10^26 kg|Famoso por seu espetacular e complexo sistema de anéis feitos de gelo e rocha.|https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg
+Urano|19.20 UA|8.681 × 10^25 kg|Possui uma inclinação tão extrema que gira praticamente de lado ao redor do sol.|https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg
+Netuno|30.05 UA|1.024 × 10^26 kg|O planeta mais distante, conhecido por ter os ventos supersônicos mais rápidos do sistema.|https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg
+Plutão|39.48 UA|1.303 × 10^22 kg|Reclassificado como planeta anão em 2006, possui um coração de gelo em sua superfície.|https://upload.wikimedia.org/wikipedia/commons/e/ef/Pluto_in_True_Color_-_High-Res.jpg
+Cometa Halley|0.58 a 35 UA|~2.2 × 10^14 kg|Um dos cometas mais famosos do mundo, visível da Terra a olho nu a cada 75 ou 76 anos.|https://upload.wikimedia.org/wikipedia/commons/2/2a/Halley%27s_Comet_%281986%29.jpg
+Cometa Hale-Bopp|0.91 a 370 UA|~1.3 × 10^16 kg|Um dos cometas mais brilhantes já vistos, ficou visível a olho nu por incríveis 18 meses.|https://upload.wikimedia.org/wikipedia/commons/e/e0/Comet_Hale-Bopp_1995O1.jpg
