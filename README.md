@@ -3,7 +3,7 @@
 Bem-vindo ao **Espaço Viagem**! Um portal educacional interativo desenvolvido para estudantes e entusiastas de astronomia. Nosso objetivo é descomplicar a ciência espacial unindo imagens em alta definição e dados curiosos sobre o nosso sistema solar de forma rápida e acessível.
 
 ## 🎯 O Projeto
-Este projeto foi construído focando na simplicidade e na performance, com entrega em **GitHub Pages**. Através dele, conectamos os usuários ao cosmos utilizando dados abertos e uma interface limpa.
+Este projeto foi construído focando na simplicidade e na performance, com entrega em um **VPS** próprio. Através dele, conectamos os usuários ao cosmos utilizando dados abertos e uma interface limpa.
 
 **Público-alvo:** Estudantes de Astronomia de todas as idades.
 
@@ -16,7 +16,7 @@ Este projeto foi construído focando na simplicidade e na performance, com entre
 * **Backend / Lógica:** Python e [FastHTML](https://fastht.ml/)
 * **Frontend:** HTML5 e CSS3 (puro)
 * **Integração de Dados:** NASA API (REST) e Web Scraping (Wikipedia)
-* **Hospedagem:** GitHub Pages
+* **Hospedagem:** VPS (servidor próprio, rodando o servidor ASGI do FastHTML)
 
 ## 📂 Estrutura do Projeto (Arquitetura MVC)
 Para manter o código organizado e facilitar o trabalho em equipe, adotamos o padrão **MVC (Model-View-Controller)**. 
