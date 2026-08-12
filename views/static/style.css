@@ -148,3 +148,76 @@ hr {
     border-top: 1px solid #1f2937;
 }
 
+
+/* =========================================================
+   7. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================= */
+ 
+/* Tablets e telas médias (até 1024px) */
+@media (max-width: 1024px) {
+    .cartao-planeta {
+        width: 280px;
+        min-width: 280px;
+    }
+}
+ 
+/* Tablets pequenos / celulares grandes (até 768px) */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+    }
+ 
+    .menu-principal ul {
+        gap: 1rem;
+        flex-wrap: wrap !important;
+    }
+ 
+    .conteudo-principal {
+        padding: 1.5rem;
+    }
+ 
+    .cartao-planeta {
+        width: 240px;
+        min-width: 240px;
+    }
+ 
+    .imagem-planeta {
+        height: 180px;
+    }
+}
+ 
+/* Celulares (até 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+ 
+    .menu-principal a {
+        font-size: 0.9rem;
+    }
+ 
+    .conteudo-principal {
+        padding: 1rem;
+    }
+ 
+    .titulo-secao {
+        font-size: 1.2rem;
+    }
+ 
+    .cartao-planeta {
+        width: 85vw;
+        min-width: 85vw;
+    }
+ 
+    .imagem-planeta {
+        height: 160px;
+    }
+ 
+    .info-planeta {
+        padding: 1rem;
+    }
+}
+
