@@ -433,4 +433,3 @@ if __name__ == "__main__":
     print(f"📡 Acesse no seu navegador: http://localhost:{porta}")
     print(f"========================================================\n")
     serve(port=porta)
-git status
