@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+.git/
+.gitignore
+.env
+.env.local
+.sesskey
+*.db
+*.sqlite3
+models/espaco_viagem.db
+.vscode/
+.idea/
+README.md
+iniciar_servidor.bat
+uv_rum_app.txt
