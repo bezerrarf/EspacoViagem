@@ -1,39 +1,109 @@
-# 🚀 Espaço Viagem
+# 🚀 Espaço Viagem — Exploração Cósmica Interativa
 
-Bem-vindo ao **Espaço Viagem**! Um portal educacional interativo desenvolvido para estudantes e entusiastas de astronomia. Nosso objetivo é descomplicar a ciência espacial unindo imagens em alta definição e dados curiosos sobre o nosso sistema solar de forma rápida e acessível.
+> **Ambiente educacional de astronomia com integração oficial das APIs da NASA e da Wikipedia, persistência em Banco de Dados SQLite, controle de perfis de acesso e interface moderna em HTML5, CSS3 e JavaScript.**
 
-## 🎯 O Projeto
-Este projeto foi construído focando na simplicidade e na performance, com entrega em um **VPS** próprio. Através dele, conectamos os usuários ao cosmos utilizando dados abertos e uma interface limpa.
+Projeto desenvolvido em equipe por: **Ramon, Samira, Emmanuel e Pyerre** para estudos práticos de Arquitetura de Software (MVC), Programação Web, Banco de Dados e Ciência Espacial.
 
-**Público-alvo:** Estudantes de Astronomia de todas as idades.
+---
 
 ## ✨ Funcionalidades Principais
-* **Vitrine do Cosmos:** Exibição da Imagem Astronômica do Dia (APOD) fornecida pela API oficial da NASA.
-* **Enciclopédia Planetária:** Textos explicativos e curiosidades sobre os planetas, alimentados por raspagem de dados (*web scraping*) da Wikipedia.
-* **Radar de Asteroides:** Um painel simples listando os asteroides mais próximos da Terra no dia atual.
 
-## 🛠️ Tecnologias Utilizadas
-* **Backend / Lógica:** Python e [FastHTML](https://fastht.ml/)
-* **Frontend:** HTML5 e CSS3 (puro)
-* **Integração de Dados:** NASA API (REST) e Web Scraping (Wikipedia)
-* **Hospedagem:** VPS (servidor próprio, rodando o servidor ASGI do FastHTML)
+1. 🔍 **Busca Cósmica Centralizada (NASA + Wikipedia)**:
+   - Barra de pesquisa no centro da tela para pesquisar planetas, estrelas, luas, asteroides, buracos negros e galáxias.
+   - Retorno conjunto de **fotografias oficiais da NASA** e **resumos científicos em português da Wikipedia**.
+2. 🔭 **Imagem Astronômica do Dia (APOD)**:
+   - Exibição diária da fotografia em alta definição da NASA acompanhada de contextualização científica.
+3. 💾 **Banco de Dados SQLite Persistente (`models/espaco_viagem.db`)**:
+   - **Tabela de Caches**: Evita sobrecarga de requisições armazenando respostas da NASA e Wikipedia.
+   - **Tabela de Usuários**: Cadastro de exploradores com controle de senhas criptografadas em SHA-256.
+   - **Tabela de Auditoria de Logins**: Registro detalhado de acessos (IP, data/hora, status e navegador).
+   - **Tabela de Histórico de Buscas**: Armazena as pesquisas personalizadas de professores e estudantes.
+4. 👥 **Perfis e Níveis de Acesso (RBAC)**:
+   - 👑 **Administrador**: Gestão da base, auditoria de todos os logins e limpeza de caches.
+   - 🎓 **Professor / Educador**: Acesso a resumos didáticos e histórico de pesquisas salvo no SQLite.
+   - 🚀 **Visitante (Sem Login)**: Navegação e busca anônima livre **sem gravação de histórico**.
+5. 🌌 **Front-End Cósmico & Rolagem Vertical Fluida**:
+   - Layout longo e dinâmico com rolagem vertical livre.
+   - Fundo espacial em movimento contínuo (*loop cósmico animado via CSS*).
+   - Carrossel planetário suave com autoplay de 6s, setas de navegação e pausa ao passar o mouse.
+   - Local reservado para inserção de nova logomarca (`views/static/imagens/logo.png`).
 
-## 📂 Estrutura do Projeto (Arquitetura MVC)
-Para manter o código organizado e facilitar o trabalho em equipe, adotamos o padrão **MVC (Model-View-Controller)**. 
+---
+
+## 🏛️ Arquitetura do Projeto (Padrão MVC)
 
 ```text
-espaco-viagem/
+EspacoViagem-Visual/
 │
-├── models/         # (MODEL) Lógica de Dados 
-│   ├── nasa_api.py # Conexão e consumo da API da NASA
-│   └── wiki_bot.py # Script de web scraping da Wikipedia
+├── .env                             # Chaves de API (NASA_API_KEY, URLs Wikipedia, Porta)
+├── .gitignore                       # Configuração para o repositório GitHub
+├── iniciar_servidor.bat             # Atalho executável para iniciar no Windows
+├── pyproject.toml                   # Dependências do Python
+├── README.md                        # Documentação completa
 │
-├── views/          # (VIEW) Interface do Usuário
-│   ├── static/     # Arquivos estáticos (CSS, imagens locais)
-│   ├── home.py     # Componentes visuais da página inicial
-│   └── radar.py    # Componentes visuais da tela de asteroides
+├── controllers/                     # [CONTROLLER - Orquestração de Rotas e APIs]
+│   ├── __init__.py
+│   └── main.py                      # Ponto de entrada, entrega de páginas HTML e endpoints JSON
 │
-├── controllers/    # (CONTROLLER) Regras de Negócio e Rotas
-│   └── main.py     # Arquivo principal do FastHTML (gerencia as URLs)
+├── models/                          # [MODEL - Banco de Dados, Caches e APIs Externas]
+│   ├── __init__.py
+│   ├── banco_de_dados.py            # SQLite: Tabelas de caches, usuarios, registros_login e historico_buscas
+│   ├── nasa_api.py                  # Integração oficial com a API da NASA (APOD, NeoWs, Imagens)
+│   ├── wikipedia_api.py             # Integração com a API da Wikipedia em português
+│   ├── repositorio_astros.py        # Leitor e formatador dos dados de astros
+│   ├── astros.txt                   # Base de dados textual de astros com categorias e medidas
+│   └── espaco_viagem.db             # Arquivo binário gerado pelo SQLite
 │
-└── README.md       # Documentação do projeto
+├── views/                           # [VIEW - Front-End em HTML5 Puro]
+│   ├── index.html                   # Tela Inicial: Rolagem Vertical, Busca Central e APOD + Wikipedia
+│   ├── cadastro.html                # Formulário HTML de Cadastro (Admin, Professor, Estudante)
+│   ├── login.html                   # Formulário HTML de Login e Painel com Histórico de Buscas
+│   ├── planetas.html                # Galeria de Planetas com Filtros e Resumos da Wikipedia
+│   ├── sobre.html                   # Apresentação da Equipe e Arquitetura MVC
+│   │
+│   └── static/                      # Recursos Estáticos
+│       ├── css/style.css            # Estilos cósmicos, fundo animado em loop e responsividade
+│       ├── js/busca_cosmica.js      # Lógica JS da busca centralizada (NASA + Wikipedia)
+│       ├── js/carrossel.js          # Lógica JS do carrossel suave com botões e pausa no hover
+│       ├── js/autenticacao.js       # Validações dos formulários de cadastro e login
+│       └── imagens/logo_padrao.svg  # Logo vetorial espacial
+```
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Backend:** Python 3.12+, FastHTML / Starlette, Uvicorn
+- **Banco de Dados:** SQLite3 (nativo do Python, sem dependências pesadas)
+- **Frontend Estrutural:** HTML5 Semântico Puro
+- **Frontend Visual:** CSS3 Puro (Glassmorphism, Flexbox, Grid, Animação em Loop)
+- **Frontend Interativo:** JavaScript Vanilla (Fetch API, DOM Events)
+- **APIs Externas:** NASA Open APIs (APOD, NeoWs, Images) & Wikipedia REST API (pt)
+
+---
+
+## 🚀 Como Executar o Projeto no Windows
+
+### Método 1: Pelo arquivo executável (Mais rápido)
+Dê um duplo clique no arquivo **`iniciar_servidor.bat`** na raiz do projeto.
+
+### Método 2: Pelo Prompt de Comando ou PowerShell
+1. Abra o terminal na pasta do projeto:
+   ```powershell
+   cd C:\Users\samir\OneDrive\Desktop\EspacoViagem-Visual
+   ```
+2. Inicie o servidor:
+   ```powershell
+   python controllers/main.py
+   ```
+3. Abra seu navegador no endereço:
+   👉 **`http://localhost:5001`** ou **`http://127.0.0.1:5001`**
+
+---
+
+## 👥 Integrantes da Equipe
+
+- 👨‍💻 **Ramon** — Liderança Técnica, Backend e Arquitetura MVC
+- 👩‍💻 **Samira** — Front-End, Design System Cósmico, UI/UX e Responsividade
+- 👨‍🚀 **Emmanuel** — Integração com APIs da NASA e Wikipedia
+- 👨‍🔬 **Pyerre** — Modelagem do Banco SQLite, Caches e Segurança

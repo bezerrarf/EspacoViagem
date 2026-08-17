@@ -1,14 +1,18 @@
 from fasthtml.common import *
 import os
+from models.nasa_api import buscar_apod
 
 def layout_pagina_inicial():
-    
-    # 1. MOCK DATA
+
+    # 0. IMAGEM ASTRONÔMICA DO DIA (APOD) — vem da API real da NASA
+    apod = buscar_apod()
+
+    # 1. MOCK DATA (planetas — continua estático por enquanto)
     caminho_atual = os.path.dirname(os.path.abspath(__file__))
     caminho_txt = os.path.join(caminho_atual, '..', 'models', 'astros.txt')
-    
-    arquivo = open(caminho_txt, "r", encoding="utf-8")
-    linhas = arquivo.readlines()
+
+    with open(caminho_txt, "r", encoding="utf-8") as arquivo:
+        linhas = arquivo.readlines()
     
     # 2. CARTÕES VISUAIS
     cartoes_visuais = []
@@ -51,6 +55,22 @@ def layout_pagina_inicial():
         ]),
         
         Main(cls="conteudo-principal", *[
+            # Seção do APOD — só aparece se a API respondeu com sucesso
+            Section(cls="secao-apod", *[
+                H2("Imagem Astronômica do Dia", cls="titulo-secao"),
+                Div(cls="cartao-apod", *[
+                    Img(src=apod["url_imagem"], alt=apod["titulo"], cls="imagem-apod"),
+                    Div(cls="info-apod", *[
+                        H3(apod["titulo"]),
+                        P(Strong("Data: "), apod["data"]),
+                        P(apod["explicacao"], cls="texto-curiosidade")
+                    ])
+                ])
+            ]) if apod else Section(cls="secao-apod", *[
+                H2("Imagem Astronômica do Dia", cls="titulo-secao"),
+                P("Não foi possível carregar a imagem do dia da NASA agora. Tente novamente mais tarde.", cls="texto-curiosidade")
+            ]),
+
             Section(cls="secao-carrossel", *[
                 H2("Exploração Planetária", cls="titulo-secao"),
                 Div(cls="trilho-carrossel", *cartoes_visuais)
