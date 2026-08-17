@@ -1,4 +1,23 @@
-__pycache__/
-*.pyc
-.venv/
+# ====================================================================
+# ARQUIVO .GITIGNORE - PROJETO ESPAÇO VIAGEM
+# ====================================================================
+
+# Ambientes e Variáveis Secretas
 .env
+.env.local
+
+# Banco de Dados Local SQLite
+*.db
+*.sqlite3
+models/espaco_viagem.db
+
+# Cache e Compilação Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Sessões e temporários
+.sesskey
+.vscode/
+.idea/
