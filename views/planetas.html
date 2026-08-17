@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetas e Astros — Espaço Viagem</title>
+    <style>
+        {{ estilo_css_embutido }}
+    </style>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho-principal">
+        <div class="cabecalho-conteudo">
+            <a href="/" class="logo-link">
+                <svg class="icone-foguete-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#0b1329" stroke="#38bdf8" stroke-width="2"/>
+                    <path d="M20 7 C25 14, 27 24, 27 27 L13 27 C13 24, 15 14, 20 7 Z" fill="url(#gradienteLogoPlan)"/>
+                    <circle cx="20" cy="17" r="3" fill="#030712"/>
+                    <path d="M13 23 L8 27 L13 27 Z" fill="#38bdf8"/>
+                    <path d="M27 23 L32 27 L27 27 Z" fill="#38bdf8"/>
+                    <polygon points="17,28 23,28 20,34" fill="#f59e0b"/>
+                    <defs>
+                        <linearGradient id="gradienteLogoPlan" x1="13" y1="7" x2="27" y2="27" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#38bdf8"/>
+                            <stop offset="0.5" stop-color="#818cf8"/>
+                            <stop offset="1" stop-color="#c084fc"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="texto-logo">Espaço Viagem</span>
+            </a>
+
+            <nav class="menu-navegacao">
+                <ul>
+                    <li><a href="/" class="link-navegacao">Início</a></li>
+                    <li><a href="/planetas" class="link-navegacao ativo">Planetas</a></li>
+                    <li><a href="/login" class="link-navegacao">Login & Histórico</a></li>
+                    <li><a href="/cadastro" class="link-navegacao">Cadastre-se</a></li>
+                    <li><a href="/sobre" class="link-navegacao">Sobre a Equipe</a></li>
+                </ul>
+            </nav>
+
+            <div id="badge-perfil-cabecalho" class="badge-perfil-usuario">
+                🔭 Visitante
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo-pagina">
+        <div>
+            <span class="tag-missao">CATÁLOGO DO SISTEMA SOLAR</span>
+            <h1 class="titulo-secao-geral" style="margin-top: 0.5rem;">Planetas, Luas e Cometas</h1>
+            <p style="color: #94a3b8; margin-top: 0.25rem;">Explore detalhes físicos, distâncias e os resumos científicos integrados da Wikipedia.</p>
+        </div>
+
+        <!-- Grade Completa de Planetas -->
+        <div class="grade-resultados-busca" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+            {{ cartoes_todos_astros_html }}
+        </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape-principal">
+        <div class="direitos-autorais">
+            <span>© 2026 Projeto Espaço Viagem — Catálogo Planetário</span>
+            <span>Ramon, Samira, Emmanuel e Pyerre</span>
+        </div>
+    </footer>
+
+    <script>
+        {{ script_auth_js }}
+    </script>
+</body>
+</html>
