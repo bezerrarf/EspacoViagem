@@ -1,10 +1,35 @@
-Para primeira execução. Verifique se UV está devidamete instalado
-Para Instala o uv:
--> curl -LsSf https://astral.sh/uv/install.sh | sh
+## 🚀 Executando o Projeto
 
-Rode o comando:
--> uv run python controllers/main.py
+### Pré-requisitos
+Python 3.12 ou superior e o gerenciador de pacotes [uv](https://docs.astral.sh/uv/) instalado.
 
-Na pasta Raiz do Projeto:
--> /workspaces/EspacoViagem 
+### Instalação do uv
 
+```bash
+# Linux / macOS / GitHub Codespaces
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+```powershell
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### Executando o servidor
+
+```bash
+# Na pasta raiz do projeto
+uv run python controllers/main.py
+
+# O servidor sobe por padrão em:
+# http://localhost:5001
+```
+
+### Executando via Docker
+
+```bash
+docker build -t espaco-viagem .
+docker run -p 5001:5001 --env-file .env espaco-viagem
+```
+
+> ⚠️ Antes de rodar, crie um arquivo `.env` na raiz do projeto com as variáveis necessárias (`NASA_API_KEY`, URLs e `PORTA`). Ele não vem do repositório — veja o `.env.example` (se houver) ou a documentação técnica completa.
