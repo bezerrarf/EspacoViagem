@@ -82,22 +82,41 @@ EspacoViagem-Visual/
 
 ---
 
-## 🚀 Como Executar o Projeto no Windows
+### 🚀 Executando o Projeto
 
-### Método 1: Pelo arquivo executável (Mais rápido)
-Dê um duplo clique no arquivo **`iniciar_servidor.bat`** na raiz do projeto.
+### Pré-requisitos
+Python 3.12 ou superior e o gerenciador de pacotes [uv](https://docs.astral.sh/uv/) instalado.
 
-### Método 2: Pelo Prompt de Comando ou PowerShell
-1. Abra o terminal na pasta do projeto:
-   ```powershell
-   cd C:\Users\samir\OneDrive\Desktop\EspacoViagem-Visual
-   ```
-2. Inicie o servidor:
-   ```powershell
-   python controllers/main.py
-   ```
-3. Abra seu navegador no endereço:
-   👉 **`http://localhost:5001`** ou **`http://127.0.0.1:5001`**
+### Instalação do uv
+
+```bash
+# Linux / macOS / GitHub Codespaces
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+```powershell
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### Executando o servidor
+
+```bash
+# Na pasta raiz do projeto
+uv run python controllers/main.py
+
+# O servidor sobe por padrão em:
+# http://localhost:5001
+```
+
+### Executando via Docker
+
+```bash
+docker build -t espaco-viagem .
+docker run -p 5001:5001 --env-file .env espaco-viagem
+```
+
+> ⚠️ Antes de rodar, crie um arquivo `.env` na raiz do projeto com as variáveis necessárias (`NASA_API_KEY`, URLs e `PORTA`). Ele não vem do repositório — veja o `.env.example` (se houver) ou a documentação técnica completa.
 
 ---
 
